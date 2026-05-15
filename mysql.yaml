@@ -12,3 +12,10 @@
       name: mysqld
       state: started
       enabled: yes
+
+  - name: connect to mysql server
+    community.mysql.mysql_info:
+      login_user: root
+      login-password: ExpenseApp@1
+      login_host: 172.31.42.65
+    register: mysql_info
