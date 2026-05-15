@@ -42,5 +42,20 @@
       src: backend.service
       dest: /etc/systemd/system/backend.service
 
+  - name: import mysql data
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: 172.31.42.65
+      target: /app/schema/backend.sql
+
+  - name: daemon reload and start backend
+    ansible.builtin.systemd.service:
+      enabled: true
+      state:  restarted
+      daemon-reload: true
+      name: backend
       
 
