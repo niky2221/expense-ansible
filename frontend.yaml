@@ -33,3 +33,13 @@
       src: /tmp/frontend.zip
       dest: /usr/share/nginx/html
       remote_src: yes
+
+  - name: copy frontend code
+    ansible.builtin.copy:
+      src: expense.config
+      dest: /etc/nginx/default.d/expense.config
+
+  - name: restart nginx
+    ansible.builtin.service:
+      state: restarted
+      name: nginx
