@@ -19,7 +19,7 @@
 
   - name: enable services
     ansible.builtin.service:
-      name: mysqld
+      name: mysqld 
       state: started
       enabled: yes
 
@@ -27,7 +27,7 @@
     community.mysql.mysql_info:
       login_user: root
       login-password: "{{ mysql_root_password }}"
-      login_host: 172.31.42.65
+      login_host: mysql.expense94.online
     register: mysql_info
     ignore_errors: true
 

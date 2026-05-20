@@ -1,4 +1,4 @@
-- name: configuring backend
+- name: configure backend
   hosts: backend
   become: yes
   tasks:
@@ -59,7 +59,7 @@
       name: all
       login_user: root
       login_password: ExpenseApp@1
-      login_host: 172.31.42.65
+      login_host: mysql.expense94.online
       target: /app/schema/backend.sql
 
   - name: daemon reload and start backend
